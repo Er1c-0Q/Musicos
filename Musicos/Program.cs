@@ -31,7 +31,7 @@ class Violinista : Musico
 
         public override void Toca()
     {
-        System.Console.WriteLine($"{nombre}  tocando su  {violin}");
+        System.Console.WriteLine($"{nombre}  {violin}");
     }
 
 }
@@ -47,7 +47,7 @@ class Baterista : Musico
 
         public override void Toca()
     {
-        System.Console.WriteLine(nombre + " tocando su " + bateria);
+        System.Console.WriteLine($"{nombre}  {bateria}");
     }
 
 }
@@ -64,7 +64,7 @@ class Bajista : Musico
 
     public override void Toca()
     {
-        System.Console.WriteLine(nombre + " tocando su " + bajo);
+        System.Console.WriteLine($"{nombre}  {bajo}");
     }
 }
 
