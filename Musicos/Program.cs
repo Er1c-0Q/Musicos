@@ -1,4 +1,4 @@
-﻿class Musico
+﻿abstract class Musico
 {
     public string nombre {get; set;}
 
@@ -12,10 +12,10 @@
         System.Console.WriteLine("Hola, yo soy " + nombre);
     }
 
-    public virtual void Toca()
-    {
+    public abstract void Toca();
+    /*{
         System.Console.WriteLine(nombre + " está tocando su instrumento");
-    }
+    }*/
 
 
 }
@@ -29,9 +29,9 @@ class Violinista : Musico
         this.violin = vio;
     }
 
-        public new void Toca()
+        public override void Toca()
     {
-        System.Console.WriteLine(nombre + " tocando su " + violin);
+        System.Console.WriteLine($"{nombre}  tocando su  {violin}");
     }
 
 }
@@ -45,7 +45,7 @@ class Baterista : Musico
         this.bateria = bat;
     }
 
-        public new void Toca()
+        public override void Toca()
     {
         System.Console.WriteLine(nombre + " tocando su " + bateria);
     }
@@ -62,7 +62,7 @@ class Bajista : Musico
 
     }
 
-    public new void Toca()
+    public override void Toca()
     {
         System.Console.WriteLine(nombre + " tocando su " + bajo);
     }
@@ -74,7 +74,7 @@ class Program
     private static void Main()
     {
         List<Musico> Grupo = new List<Musico>();
-        Grupo.Add(new Musico("Eric"));
+        //Grupo.Add(new Musico("Eric"));
         Grupo.Add(new Bajista("Omar ", "está tocando su bajo"));
         Grupo.Add(new Violinista("Iker ", "está tocanco su violín"));
         Grupo.Add(new Baterista("Carlos ", "está tocanco su bateria"));
@@ -85,10 +85,5 @@ class Program
         foreach(var m in Grupo)
         m.Toca();
 
-        Musico w = new Musico("theweeknd");
-        w.saluda();
-        w.Toca();
-
-        
     }
 }
