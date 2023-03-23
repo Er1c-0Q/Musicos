@@ -1,4 +1,4 @@
-﻿abstract class Musico
+﻿abstract class Musico // Cuando la clase es abstracta, los metodos de las clases que heredan de ella llevarán overrite
 {
     public string nombre {get; set;}
 
@@ -7,9 +7,9 @@
         nombre = n;
     }
 
-    public void saluda()
+    public virtual void saluda() // El parametro virtual es para reedefinir
     {
-        System.Console.WriteLine("Hola, yo soy " + nombre);
+        System.Console.WriteLine($"Hola, yo soy {nombre}" );
     }
 
     public abstract void Toca();
@@ -29,10 +29,13 @@ class Violinista : Musico
         this.violin = vio;
     }
 
-        public override void Toca()
+        public override void Toca() // Cuando la clase es abstracta, los metodos de las clases que heredan de ella llevarán override
     {
         System.Console.WriteLine($"{nombre}  {violin}");
     }
+
+    //public override string GetSaludo() => base.GetSaludo() + $"Hola, yo soy"+ nombre;
+
 
 }
 
@@ -40,7 +43,7 @@ class Baterista : Musico
 {
     public string bateria {get; set;}
 
-    public Baterista(string n, string bat) : base (n)
+    public Baterista(string n, string bat) : base (n) //El "base" es una referencia a la clase base
     {
         this.bateria = bat;
     }
